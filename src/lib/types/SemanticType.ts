@@ -1,4 +1,5 @@
 export type SemanticType =
+  | "breaking"
   | "feat"
   | "refactor"
   | "chore"
@@ -8,7 +9,15 @@ export type SemanticType =
   | "perf"
   | "docs";
 
+export enum SemanticTypeAction {
+  major,
+  minor,
+  patch,
+  ignore
+}
+
 export interface SemanticTypeData {
   type: SemanticType;
   description: string;
+  action: SemanticTypeAction;
 }

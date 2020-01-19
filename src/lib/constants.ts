@@ -1,36 +1,53 @@
-import { SemanticType, SemanticTypeData } from "./types/SemanticType";
+import {
+  SemanticType,
+  SemanticTypeData,
+  SemanticTypeAction
+} from "./types/SemanticType";
 
 export const SEMANTIC_COMMIT_TYPES: Record<SemanticType, SemanticTypeData> = {
+  breaking: {
+    type: "breaking",
+    description: "Description for breaking",
+    action: SemanticTypeAction.major
+  },
   feat: {
     type: "feat",
-    description: "feat"
+    description: "Description for feat",
+    action: SemanticTypeAction.minor
   },
   fix: {
     type: "fix",
-    description: "fix"
+    description: "Description for fix",
+    action: SemanticTypeAction.patch
   },
   refactor: {
     type: "refactor",
-    description: "refactor"
+    description: "Description for refactor",
+    action: SemanticTypeAction.patch
   },
   chore: {
     type: "chore",
-    description: "chore"
+    description: "Description for chore",
+    action: SemanticTypeAction.ignore
   },
   test: {
     type: "test",
-    description: "test"
+    description: "Description for test",
+    action: SemanticTypeAction.ignore
   },
   style: {
     type: "style",
-    description: "style"
+    description: "Description for style",
+    action: SemanticTypeAction.ignore
   },
   perf: {
     type: "perf",
-    description: "perf"
+    description: "Description for perf",
+    action: SemanticTypeAction.patch
   },
   docs: {
     type: "docs",
-    description: "docs"
+    description: "Description for docs",
+    action: SemanticTypeAction.ignore
   }
 };
