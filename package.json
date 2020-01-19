@@ -14,12 +14,19 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "framecss": "^1.1.7",
+    "history": "^4.10.1",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "typescript": "~3.7.2"
   },
   "devDependencies": {
+    "@types/react-router": "^5.1.4",
+    "@types/react-router-dom": "^5.1.3",
     "customize-cra": "^0.9.1",
     "customize-cra-react-refresh": "^1.0.1",
     "react-app-rewired": "^2.1.5"
