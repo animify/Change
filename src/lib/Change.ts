@@ -1,8 +1,4 @@
-import {
-  ChangelogSection,
-  ChangelogEntry,
-  Changelog
-} from "../types/Changelog";
+import { ChangelogSection, ChangelogEntry, Changelog } from "./types";
 import ChangeHelper from "./ChangeHelper";
 
 export default class Change extends ChangeHelper {

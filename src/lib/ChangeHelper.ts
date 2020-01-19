@@ -1,9 +1,7 @@
-import { ChangelogSection, ChangelogEntry } from "../types/Changelog";
+import { ChangelogSection } from "./types";
 import cuid from "cuid";
 
 export default class ChangeHelper {
-  constructor() {}
-
   protected sections: ChangelogSection[] = [];
 
   protected sortSections() {
