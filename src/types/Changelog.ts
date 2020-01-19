@@ -5,10 +5,13 @@ export interface ChangelogEntry {
 }
 
 export interface ChangelogSection {
+  uid: string;
   title?: string;
   tag?: string;
   date: number;
   entries: ChangelogEntry[];
 }
 
-export type Changelog = ChangelogSection[];
+export interface Changelog {
+  sections: ChangelogSection[];
+}

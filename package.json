@@ -14,6 +14,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "cuid": "^2.1.8",
     "framecss": "^1.1.7",
     "history": "^4.10.1",
     "node-sass": "^4.13.1",
