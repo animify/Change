@@ -1,8 +1,6 @@
-// import semver from "semver";
+import semver from "semver";
 import execa from "execa";
-//@ts-ignore
-import parser from "git-log-parser";
-import toArray from "stream-to-array";
+import { ChangelogEntry, SemanticTypeAction } from "./types";
 
 export default class Commits {
   constructor() {
@@ -19,7 +17,6 @@ export default class Commits {
     console.log("isWorkingTreeClean", isWorkingTreeClean);
 
     const getCommits = await this.getCommits();
-
     console.log("getCommits", getCommits);
   }
 
@@ -30,13 +27,37 @@ export default class Commits {
 
   public async getCommits() {
     const latestTag = await this.getLatestTag();
-    // const { stdout } = await execa("git", [
-    //   "log",
-    //   `${latestTag}...HEAD`,
-    //   "--oneline"
-    // ]);
+    const commits: ChangelogEntry[] = [];
 
-    return toArray(parser.parse({ _: `${latestTag}...HEAD` }));
+    const { stdout } = execa("git", [
+      "log",
+      `${latestTag}...HEAD`,
+      `--pretty=format:%h\n%an\n%s`
+    ]);
+
+    stdout?.on("data", (data: Buffer) => {
+      const [commitHash, authorName, commit] = data
+        .toString()
+        .trim()
+        .split("\n");
+
+      const [type, description] = commit.split(":");
+
+      const entry: ChangelogEntry = {
+        authorName,
+        commitHash,
+        type: (type?.trim() as unknown) as SemanticTypeAction,
+        description: description?.trim()
+      };
+
+      console.log("built entry", entry);
+
+      commits.push(entry);
+    });
+
+    stdout?.on("close", () => {
+      console.log("commits", commits);
+    });
   }
 
   public async isWorkingTreeClean() {

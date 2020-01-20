@@ -1,7 +1,10 @@
+import { SemanticTypeAction } from "./SemanticType";
+
 export interface ChangelogEntry {
-  title?: string;
+  authorName?: string;
   description: string;
   commitHash: string;
+  type: SemanticTypeAction;
 }
 
 export interface ChangelogSection {

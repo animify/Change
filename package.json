@@ -17,7 +17,6 @@
     "cuid": "^2.1.8",
     "execa": "^4.0.0",
     "framecss": "^1.1.7",
-    "git-log-parser": "^1.2.0",
     "git-remote-origin-url": "^3.0.0",
     "history": "^4.10.1",
     "node-sass": "^4.13.1",
@@ -27,7 +26,6 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "semver": "^7.1.1",
-    "stream-to-array": "^2.3.0",
     "typescript": "^3.7.5"
   },
   "devDependencies": {
